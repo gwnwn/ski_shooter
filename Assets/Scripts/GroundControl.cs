@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GroundControl : MonoBehaviour
 {
@@ -18,7 +19,8 @@ public class GroundControl : MonoBehaviour
     {
         if (PlayerControl.hp == 0)
         {
-            return;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            PlayerControl.hp = 1;
         }
 
         foreach (Transform tran in transform)
