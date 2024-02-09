@@ -20,6 +20,7 @@ public class GroundControl : MonoBehaviour
         if (PlayerControl.hp == 0)
         {
             PlayerControl.hp = 1;
+            Attack.bulletNum = 3;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
