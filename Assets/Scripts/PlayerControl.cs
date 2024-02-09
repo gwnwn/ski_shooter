@@ -46,6 +46,12 @@ public class PlayerControl : MonoBehaviour
             hp = 0;
             Destroy(gameObject);
         }
+
+        if (collision.collider.tag == "Enemy" && hp > 0)
+        {
+            hp = 0;
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -55,4 +61,6 @@ public class PlayerControl : MonoBehaviour
             isGround = false;
         }
     }
+
+
 }
