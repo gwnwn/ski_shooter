@@ -24,11 +24,19 @@ public class Projectile : MonoBehaviour
         transform.position = direction * speed * Time.deltaTime + (Vector2)transform.position;
     }
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.gameObject.tag == "Ground")
-    //    {
-    //        Destroy(gameObject);
-    //    }
-    //}
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Die")
+        {
+            Destroy(gameObject);
+        }
+
+        if (collision.gameObject.tag == "Ground")
+        {
+            Destroy(gameObject);
+        }
+
+    }
+
+
 }

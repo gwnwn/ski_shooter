@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GroundControl : MonoBehaviour
 {
     public float Speed = 5f;
     public GameObject[] GroundPrefabs;
+
+    public TextMeshProUGUI DistanceText;
+    private float distance = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +24,7 @@ public class GroundControl : MonoBehaviour
         if (PlayerControl.hp == 0)
         {
             PlayerControl.hp = 1;
+            distance = 0;
             Attack.bulletNum = 3;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
@@ -44,5 +49,7 @@ public class GroundControl : MonoBehaviour
             }
             tran.position = pos;
         }
+        distance += Speed * Time.deltaTime * 0.1f;
+        DistanceText.text = Mathf.RoundToInt(distance).ToString() + " m";
     }
 }

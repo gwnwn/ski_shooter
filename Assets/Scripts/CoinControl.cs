@@ -18,7 +18,10 @@ public class CoinControl : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Attack.bulletNum++;
-        Destroy(gameObject);
+        if(collision.gameObject.tag == "Player")
+        {
+            Attack.bulletNum++;
+            Destroy(gameObject);
+        }
     }
 }
